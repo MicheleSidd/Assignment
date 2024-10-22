@@ -15,7 +15,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=shopping_cart" />
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -38,6 +38,13 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+                            <!-- Cart -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('cart.index') }}">
+                            <span class="material-symbols-outlined">shopping_cart</span> <!-- Cart icon -->
+                            <span>Cart ({{ session('cart') ? count(session('cart')) : 0 }})</span>
+                            </a>
+                     </li>
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
